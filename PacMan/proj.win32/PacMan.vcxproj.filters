@@ -13,6 +13,15 @@
     <Filter Include="src\Scenes">
       <UniqueIdentifier>{5aa541f3-0bec-47ab-8af5-e6039cb9944e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\GameObjects">
+      <UniqueIdentifier>{ea072e2b-cc12-4134-b5f7-ecb960248482}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameObjects\Ghosts">
+      <UniqueIdentifier>{7721e156-5579-4a17-af8f-2e8cd5a280e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameObjects\PacMan">
+      <UniqueIdentifier>{dd6c240d-cce2-4a43-8cfc-e3044ce27277}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -30,6 +39,13 @@
     <ClCompile Include="..\Classes\GameScene.cpp">
       <Filter>src\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="Ghosts.cpp">
+      <Filter>src\GameObjects\Ghosts</Filter>
+    </ClCompile>
+    <ClCompile Include="PacMan.cpp">
+      <Filter>src\GameObjects\PacMan</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -47,6 +63,13 @@
     <ClInclude Include="..\Classes\GameScene.h">
       <Filter>src\Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="Ghosts.h">
+      <Filter>src\GameObjects\Ghosts</Filter>
+    </ClInclude>
+    <ClInclude Include="PacMan.h">
+      <Filter>src\GameObjects\PacMan</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

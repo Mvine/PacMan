@@ -32,7 +32,7 @@ bool MainMenu::init()
 	background->setPosition(Director::getInstance()->getVisibleSize().width / 2 + origin.x, Director::getInstance()->getVisibleSize().height / 2 + origin.y);
 	this->addChild(background, 0);
 
-	auto button = MenuItemImage::create("CloseNormal.png", "CloseSelected.png" ,CC_CALLBACK_1(MainMenu::goToGameScene, this));
+	auto button = MenuItemImage::create("MockStart.png", "MockStartSelected.png" ,CC_CALLBACK_1(MainMenu::goToGameScene, this));
 	button->setPosition(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y);
 
 
