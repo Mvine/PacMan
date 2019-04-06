@@ -72,6 +72,9 @@
     <ClCompile Include="..\Classes\InputHandler.cpp">
       <Filter>src\Other</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\KeyboardInput.cpp">
+      <Filter>src\Other</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -111,6 +114,9 @@
       <Filter>src\Tiles</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\InputHandler.h">
+      <Filter>src\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\KeyboardInput.h">
       <Filter>src\Other</Filter>
     </ClInclude>
   </ItemGroup>

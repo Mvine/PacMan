@@ -40,6 +40,32 @@ bool GameScene::init()
 	initGameObjects();
 	initSprites();
     
+	auto eventListener = EventListenerKeyboard::create();
+
+	eventListener->onKeyPressed = [](EventKeyboard::KeyCode keyCode, Event* event)
+	{
+		switch (keyCode)
+		{
+		case EventKeyboard::KeyCode::KEY_A:
+			PacMan::pacman->direction = PacMan::Direction::left;
+			PacMan::pacman->moveLeft(); //No time for real states.
+			break;
+		case EventKeyboard::KeyCode::KEY_D:
+			PacMan::pacman->direction = PacMan::Direction::right;
+			PacMan::pacman->moveRight();
+			break;
+		case EventKeyboard::KeyCode::KEY_S:
+			PacMan::pacman->direction = PacMan::Direction::down;
+			PacMan::pacman->moveDown();
+			break;
+		case EventKeyboard::KeyCode::KEY_W:
+			PacMan::pacman->direction = PacMan::Direction::up;
+			PacMan::pacman->moveUp();
+			break;
+		}
+	};
+
+	this->_eventDispatcher->addEventListenerWithSceneGraphPriority(eventListener, this);
 
 	scheduleUpdate();
 
@@ -110,10 +136,8 @@ void GameScene::initSprites()
 	this->addChild(PacMan::pacman->sprite, 10);
 	PacMan::pacman->sprite->setPosition(Vec2(128, 128));
 	PacMan::pacman->moveState = PacMan::MoveState::still;
-	PacMan::pacman->powerState = PacMan::PowerState::normal;//TO DO: this is not how statse are supposed to be used effectively
+	PacMan::pacman->powerState = PacMan::PowerState::normal;//TO DO: this is not how states are supposed to be used effectively
 	PacMan::pacman->direction = PacMan::Direction::left;
-
-
 }
 
 void GameScene::update(float dt)
@@ -136,26 +160,3 @@ void GameScene::updateEnemies(float dt)
 void GameScene::removeAllObjects()
 {
 }
-
-void GameScene::keyDown(EventKeyboard::KeyCode key, Event * event)
-{
-	switch (key)
-	{
-	case EventKeyboard::KeyCode::KEY_A:
-		PacMan::pacman->direction = PacMan::Direction::left;
-		PacMan::pacman->moveLeft(); //No time for real states.
-
-	case EventKeyboard::KeyCode::KEY_D:
-		PacMan::pacman->direction = PacMan::Direction::right;
-		PacMan::pacman->moveRight();
-
-	case EventKeyboard::KeyCode::KEY_S:
-		PacMan::pacman->direction = PacMan::Direction::down;
-		PacMan::pacman->moveDown();
-
-	case EventKeyboard::KeyCode::KEY_W:
-		PacMan::pacman->direction = PacMan::Direction::up;
-		PacMan::pacman->moveUp();
-	}
-}
-

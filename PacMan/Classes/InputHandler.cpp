@@ -114,7 +114,6 @@ bool InputHandler::init()
 	if (!Node::init())
 		return false;
 
-
 	//Set up the keyboard callbacks
 	initKeyboardListener();
 
