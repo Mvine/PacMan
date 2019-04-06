@@ -19,11 +19,11 @@ void BaseTile::deleteTiles()
 
 bool BaseTile::checkCollision(GameObjects * otherObject)
 {
-	if (this->boundingBox.getMinX() >= otherObject->boundingBox.getMaxX() || otherObject->boundingBox.getMinX() >= this->boundingBox.getMaxX())
+	if (this->boundingBox.getMinX() >= otherObject->sprite->getBoundingBox().getMaxX() || otherObject->sprite->getBoundingBox().getMinX() >= this->boundingBox.getMaxX())
 	{
 		return false;
 	}
-	else if (this->boundingBox.getMinY() >= otherObject->boundingBox.getMaxY() || otherObject->boundingBox.getMinY() >= this->boundingBox.getMaxY())
+	else if (this->boundingBox.getMinY() >= otherObject->sprite->getBoundingBox().getMaxY() || otherObject->sprite->getBoundingBox().getMinY() >= this->boundingBox.getMaxY())
 	{
 		return false;
 	}

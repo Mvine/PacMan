@@ -91,6 +91,7 @@ void GameScene::initSprites()
 
 
 	cocos2d::TMXLayer * wallLayer = tileMap->getLayer("Walls");
+	cocos2d::TMXLayer * pacdotLayer = tileMap->getLayer("Pacdots");
 
 	for (unsigned int x = 0; x < tileMap->getMapSize().width; x++)
 	{
@@ -100,37 +101,46 @@ void GameScene::initSprites()
 			if (tile != 0)
 			{
 				WallTile* newWallTile = new WallTile(tile->getPosition(), 32);
-					if (x != 0)
+				//OPTIMIZATION
+					//if (x != 0)
+					//{
+					//	if (wallLayer->getTileAt(Vec2(x - 1, y)) != 0)
+					//	{
+					//		//newWallTile->ignoreCollisionLeft = true;
+					//	}
+					//}
+					//if (x != tileMap->getMapSize().width - 1)
+					//{
+					//	if (wallLayer->getTileAt(Vec2(x + 1, y)) != 0)
+					//	{
+					//		//newWallTile->ignoreCollisionRight = true;
+					//	}
+					//}
+					//if (y != 0)
+					//{
+					//	if (wallLayer->getTileAt(Vec2(x, y - 1)) != 0)
+					//	{
+					//		//newWallTile->ignoreCollsiionUp = true;
+					//	}
+					//}
+					//if (y != tileMap->getMapSize().height - 1)
+					//{
+					//	if (wallLayer->getTileAt(Vec2(x + 1, y)) != 0)
+					//	{
+					//		//newWallTile->ignoreCollsiionDown = true;
+					//	}
+					//}
+
+					tile = pacdotLayer->getTileAt(Vec2(x, y));
+					if (tile != 0)
 					{
-						if (wallLayer->getTileAt(Vec2(x - 1, y)) != 0)
-						{
-							newWallTile->ignoreCollisionLeft = true;
-						}
-					}
-					if (x != tileMap->getMapSize().width - 1)
-					{
-						if (wallLayer->getTileAt(Vec2(x + 1, y)) != 0)
-						{
-							newWallTile->ignoreCollisionRight = true;
-						}
-					}
-					if (y != 0)
-					{
-						if (wallLayer->getTileAt(Vec2(x, y - 1)) != 0)
-						{
-							newWallTile->ignoreCollsiionUp = true;
-						}
-					}
-					if (y != tileMap->getMapSize().height - 1)
-					{
-						if (wallLayer->getTileAt(Vec2(x + 1, y)) != 0)
-						{
-							newWallTile->ignoreCollsiionDown = true;
-						}
+						PacdotTile * newPacdotTile = new PacdotTile(tile->getPosition(), 32);
 					}
 			}
 		}
 	}
+
+	
 	//Pacman
 	PacMan::pacman->sprite = Sprite::create("pacman.png");
 	this->addChild(PacMan::pacman->sprite, 10);
@@ -146,6 +156,12 @@ void GameScene::update(float dt)
 	updateGameObjects(dt);
 	updateEnemies(dt);
 
+	unsigned int tileListSize = BaseTile::tileList.size();
+
+	for (int i = 0; i < tileListSize; i++)
+	{
+		BaseTile::tileList[i]->resolveCollision(PacMan::pacman);
+	}
 
 }
 

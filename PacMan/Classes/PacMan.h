@@ -49,7 +49,7 @@ public:
 	void updateCollisions();
 	void update(float dt);
 
-	float m_Speed;
+	float speed;
 
 private:
 	PacMan();

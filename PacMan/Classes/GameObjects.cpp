@@ -9,8 +9,8 @@ GameObjects::GameObjects(cocos2d::Vec2 position, std::string spriteFile)
 
 	sprite = cocos2d::Sprite::create(spriteFile);
 	sprite->setPosition(position.x, position.y);
-	//boundingBox = sprite->getBoundingBox();
-	boundingBox.setRect(getLeftSidePos(), getBottomSidePos(), width, height);
+	boundingBox = sprite->getBoundingBox();
+	//boundingBox.setRect(getLeftSidePos(), getBottomSidePos(), width, height);
 
 	velocity = cocos2d::Vec2(0.0f, 0.0f);
 }
