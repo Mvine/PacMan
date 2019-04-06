@@ -22,6 +22,15 @@
     <Filter Include="src\GameObjects\PacMan">
       <UniqueIdentifier>{dd6c240d-cce2-4a43-8cfc-e3044ce27277}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\GameObjects\PacMan\States">
+      <UniqueIdentifier>{6aec3b01-62d5-4c0f-92e3-2e3a2ad211c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Tiles">
+      <UniqueIdentifier>{c0b63c3e-90f1-4690-bfde-02c995f35b0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Other">
+      <UniqueIdentifier>{901c3b7e-4721-4381-b753-2d3b7c14f7b8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -39,13 +48,30 @@
     <ClCompile Include="..\Classes\GameScene.cpp">
       <Filter>src\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="Ghosts.cpp">
-      <Filter>src\GameObjects\Ghosts</Filter>
-    </ClCompile>
-    <ClCompile Include="PacMan.cpp">
+    <ClCompile Include="..\Classes\PacMan.cpp">
       <Filter>src\GameObjects\PacMan</Filter>
     </ClCompile>
-    <ClCompile Include="GameObjects.cpp" />
+    <ClCompile Include="..\Classes\GameObjects.cpp">
+      <Filter>src\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Ghosts.cpp">
+      <Filter>src\GameObjects\Ghosts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Animation.cpp">
+      <Filter>src\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PacdotTile.cpp">
+      <Filter>src\Tiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\WallTile.cpp">
+      <Filter>src\Tiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BaseTile.cpp">
+      <Filter>src\Tiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\InputHandler.cpp">
+      <Filter>src\Other</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -63,13 +89,30 @@
     <ClInclude Include="..\Classes\GameScene.h">
       <Filter>src\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="Ghosts.h">
-      <Filter>src\GameObjects\Ghosts</Filter>
-    </ClInclude>
-    <ClInclude Include="PacMan.h">
+    <ClInclude Include="..\Classes\PacMan.h">
       <Filter>src\GameObjects\PacMan</Filter>
     </ClInclude>
-    <ClInclude Include="GameObjects.h" />
+    <ClInclude Include="..\Classes\GameObjects.h">
+      <Filter>src\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Ghosts.h">
+      <Filter>src\GameObjects\Ghosts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Animation.h">
+      <Filter>src\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PacdotTile.h">
+      <Filter>src\Tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\WallTile.h">
+      <Filter>src\Tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BaseTile.h">
+      <Filter>src\Tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\InputHandler.h">
+      <Filter>src\Other</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

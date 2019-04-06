@@ -4,6 +4,11 @@
 #define __GAME_SCENE_H__
 
 #include "cocos2d.h"
+#include "PacMan.h"
+#include "WallTile.h"
+#include "PacdotTile.h"
+#include "Ghosts.h"
+#include "InputHandler.h"
 
 class GameScene : public cocos2d::Scene
 {
@@ -11,12 +16,31 @@ public:
     static cocos2d::Scene* createScene();
 
     virtual bool init();
- 
+
 	void goToMenuScene(float dt);
 	void goToGameOverScene(float dt);
     
     // implement the "static create()" method manually
     CREATE_FUNC(GameScene);
+
+
+	void initGameObjects();
+	void initSprites();
+	void spawnEnemies();
+
+
+	void update(float dt);
+	void updateGameObjects(float dt);
+	void updateEnemies(float dt);
+	void removeAllObjects();
+
+	void keyDown(EventKeyboard::KeyCode key, Event* event);
+	void keyUp(EventKeyboard::KeyCode key, Event* event);
+
+private:
+	cocos2d::Director* director;
+
+
 };
 
 #endif // __HELLOWORLD_SCENE_H__

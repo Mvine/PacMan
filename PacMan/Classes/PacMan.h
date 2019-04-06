@@ -7,7 +7,8 @@ public:
 	
 
 	static PacMan* pacman;
-	void createHero();
+	void createPacman();
+
 
 	float getSpeed();
 	void setSpeed(float a_Speed);
@@ -35,7 +36,6 @@ public:
 		right
 
 	};
-
 	Direction direction;
 
 
@@ -45,7 +45,9 @@ public:
 	void moveRight();
 
 	void reset();
-	void update();
+
+	void updateCollisions();
+	void update(float dt);
 
 	float m_Speed;
 

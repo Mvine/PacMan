@@ -13,17 +13,24 @@ public:
 	float height;
 	float theta;
 
+	cocos2d::Vec2 lastFramePosition;
+
 	cocos2d::Vec2 velocity;
-	cocos2d::Vec2 acceleration;
 
 	cocos2d::Sprite* sprite;
 	cocos2d::Rect boundingBox;
 
 	cocos2d::Vec2 getPosition();
 	cocos2d::Sprite* getSprite();
+
+	float getLeftSidePos();
+	float getRightSidePos();
+	float getTopSidePos();
+	float getBottomSidePos();
+
 	void deleteSprite();
+	bool isCollision(GameObjects* otherObject);
 
-	virtual void update(float dt) = 0;
-
+	virtual void updatePhysics(float dt);
 };
 
