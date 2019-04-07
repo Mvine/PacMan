@@ -69,6 +69,33 @@ bool GameScene::init()
 
 	scheduleUpdate();
 
+
+	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("Audio/Beginning.wav", false);
+	scheduleUpdate();
+
+	//Need  a delay before setting chomp to true, so it doesn't start at the beginning of the game
+	if (Death == false) {
+		//Sleep(5650); //sleep does a delay (but it freezes everything)
+		Chomp = true;
+	}
+
+	//Audio functions
+	if (Chomp == true) {
+		Sleep(5650);
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Audio/Chomp.wav", true, 1.0f, 1.0f, 1.0f);
+	}
+	if (Death == true) {
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Audio/Death.wav", false, 1.0f, 1.0f, 1.0f);
+	}
+	if (eatfood == true) {
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Audio/Eat.wav", false, 1.0f, 1.0f, 1.0f);
+	}
+	if (PowerUp == true) {
+		//needs a timer or a delay?
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Audio/PowerUp.wav", true, 1.0f, 1.0f, 1.0f);
+	}
+	//DelayTime *pause = DelayTime::create(5.0);
+
 	return true;
 }
 

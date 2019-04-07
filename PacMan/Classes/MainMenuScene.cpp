@@ -41,6 +41,8 @@ bool MainMenu::init()
 
 	this->addChild(menu, 1);
 
+	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("Audio/Intermission.wav", true);
+
     return true;
 }
 

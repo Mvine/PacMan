@@ -37,6 +37,13 @@ public:
 	void keyDown(EventKeyboard::KeyCode key, Event* event);
 	void keyUp(EventKeyboard::KeyCode key, Event* event);
 
+	//Audio
+	bool Chomp = false;
+	bool Death = false;
+	bool eatfood = false;
+	bool PowerUp = false;
+	int count; //May not need, its an attempt at a timer
+
 private:
 	cocos2d::Director* director;
 
