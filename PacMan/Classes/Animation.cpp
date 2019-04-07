@@ -9,7 +9,8 @@
 
 void marcos::AnimationManager::init()
 {
-	addAnimation("pacmanAnimation.png",2, 30, 30, "pacman_animation_key", 0.2f);
+	addAnimation("pacmanAnimation.png",4, 32, 32, "pacman_animation_key", 0.1f);
+	addAnimation("death.png", 6, 32, 32, "pacman_death_animation_key", 0.1f);
 
 }
 

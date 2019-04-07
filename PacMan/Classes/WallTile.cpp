@@ -120,7 +120,7 @@ bool WallTile::resolveCollision(GameObjects * otherObject)
 			else //right side is the shallow collision side
 				otherObject->sprite->setPositionX(this->boundingBox.getMaxX() + (otherObject->sprite->getBoundingBox().size.width / 2));
 
-			//otherObject->sprite->setPositionX(otherObject->lastFramePosition.x); //push the object back to its x position last frame
+			otherObject->sprite->setPositionX(otherObject->lastFramePosition.x); //push the object back to its x position last frame
 
 			otherObject->velocity.x = 0; //reset velocity after collision
 		}

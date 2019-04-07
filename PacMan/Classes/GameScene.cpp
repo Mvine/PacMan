@@ -48,18 +48,26 @@ bool GameScene::init()
 		{
 		case EventKeyboard::KeyCode::KEY_A:
 			PacMan::pacman->direction = PacMan::Direction::left;
+			PacMan::pacman->sprite->setFlippedX(1);
+			PacMan::pacman->sprite->setRotation(0);
 			PacMan::pacman->moveLeft(); //No time for real states.
 			break;
 		case EventKeyboard::KeyCode::KEY_D:
 			PacMan::pacman->direction = PacMan::Direction::right;
+			PacMan::pacman->sprite->setFlippedX(0);
+			PacMan::pacman->sprite->setRotation(0);
 			PacMan::pacman->moveRight();
 			break;
 		case EventKeyboard::KeyCode::KEY_S:
 			PacMan::pacman->direction = PacMan::Direction::down;
+			PacMan::pacman->sprite->setFlippedX(0);
+			PacMan::pacman->sprite->setRotation(90);
 			PacMan::pacman->moveDown();
 			break;
 		case EventKeyboard::KeyCode::KEY_W:
 			PacMan::pacman->direction = PacMan::Direction::up;
+			PacMan::pacman->sprite->setFlippedX(0);
+			PacMan::pacman->sprite->setRotation(270);
 			PacMan::pacman->moveUp();
 			break;
 		}
@@ -67,11 +75,10 @@ bool GameScene::init()
 
 	this->_eventDispatcher->addEventListenerWithSceneGraphPriority(eventListener, this);
 
-	scheduleUpdate();
+
 
 
 	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("Audio/Beginning.wav", false);
-	scheduleUpdate();
 
 	//Need  a delay before setting chomp to true, so it doesn't start at the beginning of the game
 	if (Death == false) {
@@ -81,8 +88,8 @@ bool GameScene::init()
 
 	//Audio functions
 	if (Chomp == true) {
-		Sleep(5650);
-		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Audio/Chomp.wav", true, 1.0f, 1.0f, 1.0f);
+		//Sleep(5650);
+		//CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Audio/Chomp.wav", true, 1.0f, 1.0f, 1.0f);
 	}
 	if (Death == true) {
 		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Audio/Death.wav", false, 1.0f, 1.0f, 1.0f);
@@ -94,7 +101,9 @@ bool GameScene::init()
 		//needs a timer or a delay?
 		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Audio/PowerUp.wav", true, 1.0f, 1.0f, 1.0f);
 	}
-	//DelayTime *pause = DelayTime::create(5.0);
+	//DelayTime *pause = DelayTime::create(5.0
+	
+	scheduleUpdate();
 
 	return true;
 }
@@ -170,12 +179,17 @@ void GameScene::initSprites()
 
 	
 	//Pacman
-	PacMan::pacman->sprite = Sprite::create("pacman.png");
+	PacMan::pacman->sprite = Sprite::create("pacman1.png");
 	this->addChild(PacMan::pacman->sprite, 10);
 	PacMan::pacman->sprite->setPosition(Vec2(128, 128));
 	PacMan::pacman->moveState = PacMan::MoveState::still;
 	PacMan::pacman->powerState = PacMan::PowerState::normal;//TO DO: this is not how states are supposed to be used effectively
 	PacMan::pacman->direction = PacMan::Direction::left;
+
+	auto anim = cocos2d::AnimationCache::getInstance()->getAnimation("pacman_animation_key");
+	auto action = cocos2d::Animate::create(anim);
+	PacMan::pacman->sprite->runAction(cocos2d::RepeatForever::create(action));
+
 }
 
 void GameScene::update(float dt)
@@ -191,6 +205,14 @@ void GameScene::update(float dt)
 		BaseTile::tileList[i]->resolveCollision(PacMan::pacman);
 	}
 
+	if (PacMan::pacman->sprite->getPosition().x <= 0)
+	{
+		PacMan::pacman->sprite->setPositionX(643);
+	}
+	else if (PacMan::pacman->sprite->getPosition().x >= 643)
+	{
+		PacMan::pacman->sprite->setPositionX(0);
+	}
 }
 
 void GameScene::updateGameObjects(float dt)

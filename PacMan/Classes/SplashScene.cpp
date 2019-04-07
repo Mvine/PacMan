@@ -31,8 +31,14 @@ bool SplashScene::init()
 	this->scheduleOnce(schedule_selector(SplashScene::goToMainMenuScene), 2);
 
 	auto background = Sprite::create("JampackLogo.png");
-	background->setPosition(Director::getInstance()->getVisibleSize().width / 2 + origin.x, Director::getInstance()->getVisibleSize().height / 2 + origin.y);
+	background->setScale(0.5);
+	background->setPosition(300, 400);
 	this->addChild(background);
+
+	auto logo = Sprite::create("GrigorGames.png");
+	logo->setScale(0.25);
+	logo->setPosition(700, 400);
+	this->addChild(logo);
 
     return true;
 }

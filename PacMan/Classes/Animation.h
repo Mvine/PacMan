@@ -25,9 +25,6 @@ namespace marcos
 			const std::string& keyName, const float a_Delay = 0.1f);
 		static void addAnimation(Animation* animationToAdd, const std::string& animationKey);
 
-		//Private animation init functions
-		static void initBossStateAnimation();
-		static void initBossAttackParticleAnimation();
 	};
 }
 #endif

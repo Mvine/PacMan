@@ -25,12 +25,7 @@ bool PacdotTile::resolveCollision(GameObjects * otherObject)
 	//there is collision. time to resolve it
 	else
 	{
-		for (int i = 0; i < BaseTile::tileList.size(); i++)
-		{
-			if (BaseTile::tileList[i] = this)
-			{
-			}
-		}
+		return true;
 	}
 }
 
