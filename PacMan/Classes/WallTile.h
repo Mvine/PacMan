@@ -1,10 +1,12 @@
 #pragma once
 #include "BaseTile.h"
-class WallTile : public BaseTile
+
+
+class WallTile :
+	public BaseTile
 {
 public:
 	WallTile(cocos2d::Vec2 position, float tileSize);
-
 	static std::vector<WallTile*> wallTileList;
 
 	bool ignoreCollisionLeft;
@@ -13,6 +15,5 @@ public:
 	bool ignoreCollsiionDown;
 
 	bool resolveCollision(GameObjects* otherObject) override;
-
 };
 

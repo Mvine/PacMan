@@ -158,11 +158,12 @@ void GameScene::initSprites()
 					//	}
 					//}
 
-					tile = pacdotLayer->getTileAt(Vec2(x, y));
-					if (tile != 0)
-					{
-						PacdotTile * newPacdotTile = new PacdotTile(tile->getPosition(), 32);
-					}
+			}
+
+			tile = pacdotLayer->getTileAt(Vec2(x, y));
+			if (tile != 0)
+			{
+				PacdotTile * newPacdotTile = new PacdotTile(tile->getPosition(), 32);
 			}
 		}
 	}

@@ -19,5 +19,18 @@ PacdotTile::PacdotTile(cocos2d::Vec2 position, float tileSize)
 
 bool PacdotTile::resolveCollision(GameObjects * otherObject)
 {
-	return false;
+	//first see if there is any collision in the first place
+	if (!this->checkCollision(otherObject))
+		return false;
+	//there is collision. time to resolve it
+	else
+	{
+		for (int i = 0; i < BaseTile::tileList.size(); i++)
+		{
+			if (BaseTile::tileList[i] = this)
+			{
+			}
+		}
+	}
 }
+
